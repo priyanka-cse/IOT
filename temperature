@@ -1,0 +1,17 @@
+int analog_out=A0;
+
+void setup()
+{ 
+  Serial.begin(9600);
+}
+void loop()
+{
+  int raw_voltage=analogRead(analog_out);
+  float millivolt=(raw_voltage/1024.0)*5000;
+  float celsius=millivolt/10;
+  Serial.print(celsius);
+  Serial.print(":degree celsius\n");
+  Serial.print((celsius*9)/5+32);
+  Serial.print(":degree fahreneit\n\n");
+  delay(5000);
+}
