@@ -1,0 +1,22 @@
+const int Buttonpin=2;
+const int ledpin=13;
+
+int ButtonState=0;
+
+void setup()
+{
+  pinMode(ledpin,OUTPUT);
+  pinMode(Buttonpin,INPUT);
+}
+void loop()
+{
+  ButtonState=digitalRead(Buttonpin);
+  if(ButtonState==HIGH)
+  {
+    digitalWrite(ledpin,HIGH);
+  }
+  else
+  {
+    digitalWrite(ledpin,LOW);
+  }
+}
