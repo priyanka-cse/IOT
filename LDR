@@ -1,0 +1,26 @@
+int LDR=A0;
+int LDR_value=0;
+int light_sensitivity=500;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(11,OUTPUT);
+}
+void loop()
+{
+  LDR_value=analogRead(LDR);
+  Serial.print(LDR_value);
+  Serial.print("\n");
+  delay(50);
+  
+  if(LDR_value<light_sensitivity)
+  {
+    digitalWrite(11,HIGH);
+  }
+  else
+  {
+    digitalWrite(11,LOW);
+  }
+  delay(100);
+}
