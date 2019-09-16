@@ -1,0 +1,29 @@
+#include<SoftwareSerial.h>
+
+int sensor_pin=A0;
+int sensor_value=0;
+int led=13;
+int buzzer=12;
+void setup()
+{
+  pinMode(buzzer,OUTPUT);
+  pinMode(led,OUTPUT);
+  Serial.begin(96000);
+}
+void loop()
+{
+  Serial.println("flame sensor");
+  sensor_value=analogRead(sensor_pin);
+  Serial.println(sensor_value);
+  if(sensor_value<500)
+  {
+    Serial.println("fire detected");
+    Serial.println("LED on");
+    digitalWrite(led,HIGH);
+    digitalWrite(buzzer,HIGH);
+    delay(1000);
+  }
+  digitalWrite(led,LOW);
+  digitalWrite(buzzer,LOW);
+  delay(sensor_value);
+}
